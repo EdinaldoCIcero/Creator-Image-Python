@@ -73,21 +73,21 @@ class AppBook():
                                 ],
                                 
                                 
-                                #[sg.Multiline(  
-                                #                size                = (120, 50), 
-                                #                border_width        = 0,
-                                #                background_color    = COLORS_APP["AZUL_ESCURO_2"],
-                                #                text_color          = COLORS_APP["BRANCO_1"], 
-                                #                write_only          = False, 
-                                #                key                 = self.ML_KEY, 
-                                #                reroute_stdout      = True,
-                                #                #focus               = True,
-                                #                echo_stdout_stderr  = True,
-                                #                pad                 = 0,
-                                #                no_scrollbar        = True,
-                                #                do_not_clear        = True,
-                                #                )
-                                #            ]
+                                [sg.Multiline(  
+                                                size                = (50, 10), 
+                                                border_width        = 0,
+                                                background_color    = COLORS_APP["AZUL_ESCURO_2"],
+                                                text_color          = COLORS_APP["BRANCO_1"], 
+                                                write_only          = False, 
+                                                key                 = self.ML_KEY, 
+                                                reroute_stdout      = True,
+                                                #focus               = True,
+                                                echo_stdout_stderr  = True,
+                                                pad                 = 0,
+                                                no_scrollbar        = True,
+                                                do_not_clear        = True,
+                                                )
+                                            ]
                             ]
 
 
@@ -127,7 +127,7 @@ class AppBook():
 									img_out_name 			= "Novaoutraimagem.png",
 									)
 
-            if self.events == "_BUTTON_CAP_GIT_":
+            if self.events == "_BUTTON_NeW_IMG":
                 self.img_class.new_image_background( 
                                                     img_background  = "" , 
                                                     image_sub       = "", 
@@ -138,7 +138,11 @@ class AppBook():
                                                     text            = "" ,
                                                     img_out_name    = "image.png"
                                                     )
-                
+
+            if self.events == "_BUTTON_CAP_GIT_":                              
+                self.img_class.tumbnail_github_repository(  text_title      = "GITHUB_TEST" , 
+                                                            text_descrition = "Test do criador de imagens automaticas!")
+
                 
                 pass
 

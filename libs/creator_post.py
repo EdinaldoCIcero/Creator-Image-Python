@@ -2,7 +2,7 @@ from PIL import Image, ImageFont, ImageDraw , ImagePalette , PSDraw
 
 
 import json
-
+from random import randint
 #--------------------------------------------------------
 from libs.JSON import JsonClass 
 from libs.class_image import CreatorImagens
@@ -10,10 +10,12 @@ from libs.class_image import CreatorImagens
 
 #--------------------------------------------------------
 
-JSLOAD      = JsonClass()
-COLORS_APP  = JSLOAD.json_read(name_file = "database/app_colors" )
+JSLOAD      		= JsonClass()
+COLORS_APP  		= JSLOAD.json_read(name_file = "database/app_colors" )
+GITHUB_TUMB_DATAS  	= JSLOAD.json_read(name_file = "database/github_tumbnail" )
 
-#--------------------------------------------------------
+
+#-------------------------------------------------------- github_tumbnail
 
 class CreatorPosts():
 	def __init__(self):
@@ -90,41 +92,48 @@ class CreatorPosts():
 		imge_join.show()
 
 
-
 	#--------------------------------------------------------
-	def Instagram_post_background_image(self ):
-		img_1 = "datas/img/backgrounds/back_2.png"
-		img_2 = "datas/img/sels/python.png"
-		img_3 = "datas/img/molduras/moldura_3.png"
+	def tumbnail_github_repository(self , text_title , text_descrition ):
+		ran_numb 		= randint(0 , 1000)
+		path_imgs_base 	= "imgs/backgrounds/molduras/"
 
-		COLORS = (70,70,125)
-		font_typ = 'arial.ttf'
-
+		img_1 		= GITHUB_TUMB_DATAS["img_backgrund_0"]
+		img_2 		= GITHUB_TUMB_DATAS["img_backgrund_1"]
 		
+		texto_2 	= " Criador de imagens para \n posts no instagram. :)" 
+
+		#1280 x 640  + str( ran_numb)
 		#--------------------------------------------------------------
-		texto_2 = " Criador de imagens para \n posts no instagram. :) " 
 
-
-		ic  = CreatorImagens()
-
-		imge_join = ic.joins_imagens_files( 
-											file_path_1 = "datas/img/img_news/minha_imagem_1.png" ,
+		imge_join 	= self.c_img.joins_imagens_files( 
+											file_path_1 = img_1 ,
 											file_path_2 = img_2 
 											)
 
+		
+		self.c_img.text_imagen( 
+								image			= imge_join , 
+								text_positions	= GITHUB_TUMB_DATAS["text_positions"][0] , 
+								font_type		= GITHUB_TUMB_DATAS["font_list_values"][1] , 
+								font_size		= GITHUB_TUMB_DATAS["font_list_values"][2] , 
+								text_color		= COLORS_APP["BRANCO_1"] , 
+								text			= text_title
+								)
 
-		ic.text_imagen( image			= imge_join , 
-						text_positions	= (250 , 540 ) , 
-						font_type		= font_typ , 
-						font_size		= 50, 
-						text_color		= COLORS_APP["BRANCO_1"] , 
-						text			= texto_2
-						)
+		self.c_img.text_imagen( 
+								image			= imge_join , 
+								text_positions	= GITHUB_TUMB_DATAS["text_positions"][1] , 
+								font_type		= GITHUB_TUMB_DATAS["font_list_values"][0] , 
+								font_size		= GITHUB_TUMB_DATAS["font_list_values"][3] , 
+								text_color		= COLORS_APP["BRANCO_1"] , 
+								text			= text_descrition
+								)
+
 
 
 		imge_join.save(
-			fp="datas/img/img_news/minha_imagem_1.png", 
-			format=None)
+			fp		= "out/github_tumbnail"  + ".png",
+			format	= None)
 		
 		
 		imge_join.show()
