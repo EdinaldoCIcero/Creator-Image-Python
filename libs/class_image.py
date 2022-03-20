@@ -17,20 +17,23 @@ class CreatorImagens():
 
 		pass
 	#--------------------------------------------------------
+	def coverResize(self, image_file_name , imagen_resize ):
+		with Image.open( image_file_name ) as im:
+			im_resized = im.resize(  imagen_resize  )
+			
+		return im_resized 
 
 	def text_imagen(self , image , text_positions , font_type , font_size , text_color , text ):
 		text_font   = ImageFont.truetype(font_type,  font_size)
 		larg , altu = text_font.getsize(text)
 		draw        = ImageDraw.Draw(image)
-
 		draw.text( text_positions, text, font = text_font, fill = text_color )
 
 		return larg , altu
-
 		pass
 
 	#--------------------------------------------------------
-
+	
 	def img_creator_from_zero(self , size , color ):
 		imagem = Image.new('RGBA', size, color)
 		return imagem

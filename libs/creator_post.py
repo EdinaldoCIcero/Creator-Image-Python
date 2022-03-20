@@ -94,13 +94,13 @@ class CreatorPosts():
 
 	#--------------------------------------------------------
 	def tumbnail_github_repository(self , text_title , text_descrition ):
-		ran_numb 		= randint(0 , 1000)
-		path_imgs_base 	= "imgs/backgrounds/molduras/"
+
+		ran_numb 	= randint(0 , 1000)
 
 		img_1 		= GITHUB_TUMB_DATAS["img_backgrund_0"]
 		img_2 		= GITHUB_TUMB_DATAS["img_backgrund_1"]
 		
-		texto_2 	= " Criador de imagens para \n posts no instagram. :)" 
+
 
 		#1280 x 640  + str( ran_numb)
 		#--------------------------------------------------------------
@@ -114,7 +114,7 @@ class CreatorPosts():
 		self.c_img.text_imagen( 
 								image			= imge_join , 
 								text_positions	= GITHUB_TUMB_DATAS["text_positions"][0] , 
-								font_type		= GITHUB_TUMB_DATAS["font_list_values"][1] , 
+								font_type		= GITHUB_TUMB_DATAS["font_list_values"][0] , 
 								font_size		= GITHUB_TUMB_DATAS["font_list_values"][2] , 
 								text_color		= COLORS_APP["BRANCO_1"] , 
 								text			= text_title
