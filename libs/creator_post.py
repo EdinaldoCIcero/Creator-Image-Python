@@ -97,36 +97,43 @@ class CreatorPosts():
 
 		ran_numb 	= randint(0 , 1000)
 
-		img_1 		= GITHUB_TUMB_DATAS["img_backgrund_0"]
-		img_2 		= GITHUB_TUMB_DATAS["img_backgrund_1"]
+		img_1 		= GITHUB_TUMB_DATAS["GITHUB_CARD"]["img_backgrund_0"]
+		img_2 		= GITHUB_TUMB_DATAS["GITHUB_CARD"]["img_backgrund_1"]
 		
+		#text_decrition_project = text_descrition
 
 
 		#1280 x 640  + str( ran_numb)
 		#--------------------------------------------------------------
 
-		imge_join 	= self.c_img.joins_imagens_files( 
-											file_path_1 = img_1 ,
-											file_path_2 = img_2 
+		
+		#i.replace("/", "\n")
+
+		#print( i )
+
+
+		imge_join 	= self.c_img.joins_imagens_files(
+											file_path_1 = img_1,
+											file_path_2 = img_2
 											)
 
 		
 		self.c_img.text_imagen( 
 								image			= imge_join , 
-								text_positions	= GITHUB_TUMB_DATAS["text_positions"][0] , 
-								font_type		= GITHUB_TUMB_DATAS["font_list_values"][0] , 
-								font_size		= GITHUB_TUMB_DATAS["font_list_values"][2] , 
+								text_positions	= GITHUB_TUMB_DATAS["GITHUB_CARD"]["text_positions"][0] , 
+								font_type		= GITHUB_TUMB_DATAS["GITHUB_CARD"]["font_list_values"][0] , 
+								font_size		= GITHUB_TUMB_DATAS["GITHUB_CARD"]["font_list_values"][2] , 
 								text_color		= COLORS_APP["BRANCO_1"] , 
 								text			= text_title
 								)
 
 		self.c_img.text_imagen( 
 								image			= imge_join , 
-								text_positions	= GITHUB_TUMB_DATAS["text_positions"][1] , 
-								font_type		= GITHUB_TUMB_DATAS["font_list_values"][0] , 
-								font_size		= GITHUB_TUMB_DATAS["font_list_values"][3] , 
+								text_positions	= GITHUB_TUMB_DATAS["GITHUB_CARD"]["text_positions"][1],
+								font_type		= GITHUB_TUMB_DATAS["GITHUB_CARD"]["font_list_values"][0], 
+								font_size		= GITHUB_TUMB_DATAS["GITHUB_CARD"]["font_list_values"][3],
 								text_color		= COLORS_APP["BRANCO_1"] , 
-								text			= text_descrition
+								text			= text_descrition.replace("/", "\n")
 								)
 
 
